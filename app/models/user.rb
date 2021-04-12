@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-    has_many :albums 
+    has_secure_password
+    has_many :libraries
+    has_many :albums, through: :libraries
 end 

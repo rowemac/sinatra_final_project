@@ -1,3 +1,8 @@
+Album.destroy_all
+User.destroy_all
+Library.destroy_all
+
+
 50 times do
     Album.create(
         title: Faker::Music.album
