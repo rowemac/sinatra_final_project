@@ -6,11 +6,10 @@ class CreateAlbumsTable < ActiveRecord::Migration[5.2]
       t.integer :year
       t.string :condition
       t.boolean :reissue
-      t.string :tracklist
+      t.string :genre
       t.string :label
       t.string :producer
-      
-      t.timestamps
+      t.string :single
     end 
   end
 end

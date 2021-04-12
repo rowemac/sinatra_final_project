@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_193432) do
+ActiveRecord::Schema.define(version: 2021_04_12_201524) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
@@ -18,11 +18,10 @@ ActiveRecord::Schema.define(version: 2021_04_12_193432) do
     t.integer "year"
     t.string "condition"
     t.boolean "reissue"
-    t.string "tracklist"
+    t.string "genre"
     t.string "label"
     t.string "producer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "single"
   end
 
   create_table "users", force: :cascade do |t|
