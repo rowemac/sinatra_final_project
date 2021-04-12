@@ -1,0 +1,3 @@
+class AlbumCollectionsController < ApplicationController
+
+end 
