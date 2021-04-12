@@ -11,13 +11,27 @@ Library.destroy_all
         condition: ["New", "Good", "Fair", "Poor"].sample
         reissue: [true, false].sample
         genre: Faker::Music.genre
-        label: 
-        producer: 
+        label: Faker::Fantasy::Tolkien.location + " Records"
+        producer: Faker::TvShows::TwinPeaks.character 
         single: Faker::Music::RockBand.song 
     )
-
-
 end 
+
+25 times do
+    User.create(
+        username: Faker::Internet.username
+        password_digest: 
+        email: Faker::Internet.email
+    )
+end
+
+25 times do 
+    Library.create(
+        album_id: rand(1..50)
+        user_id: rand(1..25)
+    )
+end
+
 
 
 puts "Data Seeded."
