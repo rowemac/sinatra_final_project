@@ -22,20 +22,20 @@ class LibrariesController < ApplicationController
     
     get '/library/:id/edit' do 
         @user = current_user
-        @album = @user.albums.find(params[:id])
+        @library = @user.albums.find(params[:id])
         erb :'libraries/edit'
     end 
     
     patch '/library/:id' do 
-        
+        @user = current_user
         @album = @user.albums.find(params[:id])
-        @album.update(params)
+        @library.update(params)
         redirect to "/library/#{@album.id}"
     end
     
     delete '/library/:id' do 
-        @album = Album.find_by_id(params[:id])
-        @album.delete
+        @library = Library.find_by_id(params[:id])
+        @library.delete
         redirect to '/library'
     end
 end 
