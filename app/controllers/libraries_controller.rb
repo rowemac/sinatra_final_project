@@ -15,29 +15,29 @@ class LibrariesController < ApplicationController
         @album.update(year: params[:year], condition: params[:condition], reissue: params[:reissue])
         redirect "/library"
     end
+
+    get '/library/:id' do 
+        @user = current_user
+        @library = @user.albums.find(params[:id])
+        erb :'libraries/show'
+    end 
     
-    # get '/library/:id' do 
-    #     @user = current_user
-    #     @library = @user.albums.find(params[:id])
-    #     erb :'libraries/show'
-    # end 
+    get '/library/:id/edit' do 
+        @user = current_user
+        @library = @user.albums.find(params[:id])
+        erb :'libraries/edit'
+    end 
     
-    # get '/library/:id/edit' do 
-    #     @user = current_user
-    #     @library = @user.albums.find(params[:id])
-    #     erb :'libraries/edit'
-    # end 
+    patch '/library/:id' do 
+        @user = current_user
+        @library = @user.albums.find(params[:id])
+        @library.update(params)
+        redirect to "/library/#{@library.album_id}}"
+    end
     
-    # patch '/library/:id' do 
-    #     @user = current_user
-    #     @library = @user.albums.find(params[:id])
-    #     @library.update(params)
-    #     redirect to "/library/#{@album.id}"
-    # end
-    
-    # delete '/library/:id' do 
-    #     @library = Library.find_by_id(params[:id])
-    #     @library.delete
-    #     redirect to '/library'
-    # end
+    delete '/library/:id' do 
+        @library = Library.find(params[:id])
+        @library.delete
+        redirect to '/library'
+    end
 end 
