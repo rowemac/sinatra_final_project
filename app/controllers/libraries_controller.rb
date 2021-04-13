@@ -1,12 +1,12 @@
 class LibrariesController < ApplicationController
     get '/library' do
         @library = current_user.albums
-        erb :'library/index'
+        erb :'libraries/index'
     end 
     
     get '/library/new' do 
         @user = current_user
-        erb :'library/new'
+        erb :'libraries/new'
     end
     
     post '/library' do 
@@ -17,13 +17,13 @@ class LibrariesController < ApplicationController
     get '/library/:id' do 
         @user = current_user
         @album = @user.albums.find(params[:id])
-        erb :'library/show'
+        erb :'libraries/show'
     end 
     
     get '/library/:id/edit' do 
         @user = current_user
         @album = @user.albums.find(params[:id])
-        erb :'library/edit'
+        erb :'libraries/edit'
     end 
     
     patch '/library/:id' do 
