@@ -1,6 +1,6 @@
 <h1> My Library </h1>
 <br> 
-<% @user.albums.each do | album | %>
+<% @library.each do | album | %>
     <p><a href="/library/<%= album.id %>"> <%=album.title%></a> </p>
 <% end %>
 
