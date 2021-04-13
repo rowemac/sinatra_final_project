@@ -1,0 +1,27 @@
+<h1> Add A New Album </h1>
+<br>
+<form action = "/albums" method = "post">
+    <p>Title: <input type = "text" name = "title"></p>
+    <p>Artist: <input type = "text" name = "artist"></p>
+    <p>Year: <input type = "text" name = "year"></p>
+    <p>Label: <input type = "text" name = "label"></p>
+    <p>Single: <input type = "text" name = "single"></p>
+    
+    <p>Condition: 
+        <select name = "condition">
+            <option value = "New">New</option>
+            <option value = "Good">Good</option>
+            <option value = "Fair">Fair</option>
+            <option value = "Poor">Poor</option>
+        </select>
+    </p>
+    
+    <p>Reissue?:
+        <select name = "reissue">
+            <option value = "true">Yes</option>
+            <option value = "false">No</option>
+        </select>
+    </p> 
+    
+    <p><input type = "submit" value = "Add"></p>
+</form>
