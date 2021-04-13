@@ -1,0 +1,30 @@
+<h1> <%=@album.title%> </h1>
+<h2> <%=@album.artist%>, <%=@album.year%> </h2> 
+<p> Produced by: <%=@album.producer%> </p>
+<p> <%=@album.label%> </p>
+<p> Single: "<%=@album.single%>" </p> 
+<p> Album Condition: <%=@album.condition%> </p>
+<p> Reissue: <%if @album.reissue == true %>
+        <%=@album.reissue = "Yes" %> 
+    <%elsif @album.reissue == false%> 
+        <%=@album.reissue = "No"%>
+    <%end%>
+</p>
+
+
+<p> <form action = "/library">
+    <input id = "button" type = "submit" value = "Back">
+    </form>
+</p>
+
+<p> <form action = "/library/<%=@album.id%>/edit">
+    <input id = "button" type = "submit" value = "Edit">
+    </form>
+</p>
+
+<p> <form action = "/library/<%=@album.id%>/delete" method = "post">
+    <input = "hidden" type = "hidden" name = "_method" value = "delete">
+    <input id = "button" type = "submit" value = "Delete">
+    </form>
+</p>
+
