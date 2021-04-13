@@ -10,13 +10,13 @@ class LibrariesController < ApplicationController
     end
     
     post '/library' do 
-        @album = Album.create(params)
-        redirect "/library/#{@album.id}"
+        @library = Library.create(params)
+        redirect "/library/#{@library.id}"
     end
     
     get '/library/:id' do 
         @user = current_user
-        @album = @user.albums.find(params[:id])
+        @library = @user.albums.find(params[:id])
         erb :'libraries/show'
     end 
     

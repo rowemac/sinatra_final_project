@@ -1,11 +1,23 @@
 <div class="container">
   <header><img src="images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Sinatra Template Default Page</h2>
+    <h2>Application Name</h2>
 
     <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
+      <p>"Welome to the Application. Please log in or sign up to continue."</p>
+      
+      <p><form action = "/login">
+            <input id = "button" type = "submit" value = "Log In">
+          </form>
+      </p>
+
+      <p> <form action = "/signup">
+            <input id = "button" type = "submit" value = "Sign Up">
+          </form>
+      </p> 
+
     </div>
+  </div> 
+
+
 </div>
