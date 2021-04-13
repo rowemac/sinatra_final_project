@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         erb :'users/account'
     end
 
-    get '/account/edit'
+    get '/account/edit' do 
         @user = current_user
         erb :'users/edit'
     end 

@@ -20,7 +20,7 @@ end
 25.times do
     User.create(
         username: Faker::Internet.username,
-        password: "getinthereson", 
+        password: "please123", 
         email: Faker::Internet.email
     )
 end
