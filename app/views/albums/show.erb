@@ -4,7 +4,7 @@
 <p> <%=@album.label%> </p>
 <p> Single: "<%=@album.single%>" </p> 
 <p> Album Condition: <%=@album.condition%> </p>
-<p> Reissue?: <%if @album.reissue == true %>
+<p> Reissue: <%if @album.reissue == true %>
         <%=@album.reissue = "Yes" %> 
     <%elsif @album.reissue == false%> 
         <%=@album.reissue = "No"%>
