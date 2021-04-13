@@ -10,11 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :'welcome'
   end
 
   get "/signup" do
-    erb :signup
+    erb :'signup'
   end
 
   post "/signup" do
@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/login" do
-    erb :login
+    erb :'login'
   end
 
   post "/login" do
@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/failure" do
-    erb :failure
+    erb :'failure'
   end
 
   get "/logout" do
