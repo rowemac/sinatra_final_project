@@ -20,10 +20,9 @@ class ApplicationController < Sinatra::Base
       redirect "/failure"
 
     else 
-      user = User.new(username: params[:username], password: params[:password])
-      redirect "/albums"
+      user = User.new(username: params[:username], password: params[:password], email: params[:email])
+      redirect "/library"
     end
-    
   end
 
   get "/login" do

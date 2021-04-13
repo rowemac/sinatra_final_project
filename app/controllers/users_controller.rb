@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
-    get '/users' do
-        @users = User.all
-        erb :'/users/all'
+    get '/account' do
+        @user = current_user
+        erb :'users/account'
     end
 
+    get '/account/edit'
+        @user = current_user
+        erb :'users/edit'
+    end 
 
 end 
