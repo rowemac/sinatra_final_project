@@ -78,6 +78,10 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+  
+  a.underline-on-hover:hover {
+    text-decoration: underline;
+  }
 }
 
 @media screen and (max-width: 600px) {
