@@ -1,35 +1,35 @@
-<h1> Edit </h1>
-<h2> <i><%=@album.title%></i> by <%=@album.artist%> </h2> 
+<h5> Edit </h5>
+<h6> <i><%=@album.title%></i> by <%=@album.artist%> </h6> 
 <br> 
-<form action = "/albums/<%=@album.id%>" method = "post">
-    <input id = "hidden" type = "hidden" name = "_method" value = "patch">
-    <p>Title: <input type = "text" name = "title"></p>
-    <p>Artist: <input type = "text" name = "artist"></p>
-    <p>Year: <input type = "text" name = "year"></p>
-    <p>Label: <input type = "text" name = "label"></p>
-    <p>Single: <input type = "text" name = "single"></p>
+<form action="/albums/<%=@album.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Title: <input type="text" name="title" placeholder="<%=@album.title%>"></p>
+    <p>Artist: <input type="text" name="artist" placeholder="<%=@album.artist%>"></p>
+    <p>Year: <input type="text" name="year" placeholder="<%=@album.year%>"></p>
+    <p>Label: <input type="text" name="label" placeholder="<%=@album.label%>"></p>
+    <p>Single: <input type="text" name="single" placeholder="<%=@album.single%>"></p>
     
     
     <p>Reissue:
-        <select name = "reissue">
-            <option value = true>Yes</option>
-            <option value = false>No</option>
+        <select class="browser-default" name="reissue">
+            <option value=true>Yes</option>
+            <option value=false>No</option>
         </select>
     </p> 
     
     <p>Condition: 
-        <select name = "condition">
-            <option value = "New">New</option>
-            <option value = "Good">Good</option>
-            <option value = "Fair">Fair</option>
-            <option value = "Poor">Poor</option>
+        <select class="browser-default" name="condition">
+            <option value="New">New</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Poor">Poor</option>
         </select>
     </p>
     
-    <p><input type = "submit" value = "Update"></p>
+    <p><input id="button" class="btn black" type="submit" value="Update"></p>
 </form>
 
-<p> <form action = "/library">
-    <input id = "button" type = "submit" value = "Back">
+<p> <form action="/library">
+    <input id="button" class="btn black" type="submit" value="Back">
     </form>
 </p>
