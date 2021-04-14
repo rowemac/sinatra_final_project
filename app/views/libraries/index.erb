@@ -1,15 +1,15 @@
-<h1> My Library </h1>
+<h4> My Library </h4>
 <br> 
 <% @library.each do | album | %>
     <p><a href="/library/<%=album.id%>"> <%=album.title%></a> </p>
 <% end %>
 
 <p> <form action = "/library/new">
-    <input id = "button" type = "submit" value = "Add Album">
+    <input id="button" class="btn black" type="submit" value="Add Album">
     </form>
 </p>
 
 <p> <form action = "/">
-    <input id = "button" type = "submit" value = "Back">
+    <input id="button" class="btn black" type ="submit" value="Back">
     </form>
 </p>
