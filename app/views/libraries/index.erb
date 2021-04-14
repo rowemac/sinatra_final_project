@@ -1,7 +1,8 @@
 <h4> My Library </h4>
 <br> 
 <% @library.each do | album | %>
-    <p><a href="/library/<%=album.id%>" class="underline-on-hover" style="color: black"> <%=album.title%></a> </p>
+    <p><a href="/library/<%=album.id%>" class="underline-on-hover" style="color: black"> <%=album.title%></a><br>
+    <i><%=album.artist%>, <%=album.year%></i></p>
 <% end %>
 
 <p> <form action = "/library/new">
