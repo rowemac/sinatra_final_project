@@ -1,32 +1,29 @@
-<h1> Add A New Album </h1>
+<h5> Add A New Album </h5>
 <br>
-<form action = "/library" method = "post">
-    <p>Title: <input type = "text" name = "title"></p>
-    <p>Artist: <input type = "text" name = "artist"></p>
-    <p>Year: <input type = "text" name = "year"></p>
-    <p>Label: <input type = "text" name = "label"></p>
-    <p>Single: <input type = "text" name = "single"></p>
+<form action="/library" method="post">
+    <p>Title: <input type="text" name="title"></p>
+    <p>Artist: <input type="text" name="artist"></p>
+    <p>Year: <input type="text" name="year"></p>
+    <p>Label: <input type="text" name="label"></p>
+    <p>Single: <input type="text" name="single"></p>
     
     <p>Condition: 
-        <select name = "condition">
-            <option value = "New">New</option>
-            <option value = "Good">Good</option>
-            <option value = "Fair">Fair</option>
-            <option value = "Poor">Poor</option>
+        <select class="browser-default" name = "condition">
+            <option value="New">New</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Poor">Poor</option>
         </select>
     </p>
     
     <p>Reissue:
-        <select name = "reissue">
-            <option value = "true">Yes</option>
-            <option value = "false">No</option>
+        <select class="browser-default" name="reissue">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
         </select>
     </p> 
     
-    <p><input type = "submit" value = "Add"></p>
+    <p><input id="button" class="btn black" type="submit" value ="Add"></p>
+    <p><input id="button" class="btn black" type="submit" value="Back"></p>
 </form>
 
-<p> <form action = "/library">
-    <input id = "button" type = "submit" value = "Back">
-    </form>
-</p>
