@@ -1,5 +1,6 @@
-<h1> <%=@album.title%> </h1>
-<h2> <%=@album.artist%>, <%=@album.year%> </h2> 
+<h4> <%=@album.title%> </h4>
+<h5> <%=@album.artist%>, <%=@album.year%> </h5> 
+<br>
 <p> Produced by: <%=@album.producer%> </p>
 <p> <%=@album.label%> </p>
 <p> Single: "<%=@album.single%>" </p> 
@@ -12,19 +13,20 @@
 </p>
 
 
+<p> <form action="/library/<%=@album.id%>/edit">
+    <input id="button" class="btn black" type="submit" value="Edit">
+    </form>
+</p>
+
+<p> <form action="/library/<%=@album.id%>/delete" method="post">
+    <input="hidden" type="hidden" name="_method" value="delete">
+    <input id="button" class="btn black" type="submit" value="Delete">
+    </form>
+</p>
+
 <p> <form action = "/library">
-    <input id = "button" type = "submit" value = "Back">
+    <input id="button" class="btn black" type="submit" value="Back">
     </form>
 </p>
 
-<p> <form action = "/library/<%=@album.id%>/edit">
-    <input id = "button" type = "submit" value = "Edit">
-    </form>
-</p>
-
-<p> <form action = "/library/<%=@album.id%>/delete" method = "post">
-    <input = "hidden" type = "hidden" name = "_method" value = "delete">
-    <input id = "button" type = "submit" value = "Delete">
-    </form>
-</p>
 
