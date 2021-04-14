@@ -3,7 +3,7 @@ User.destroy_all
 Library.destroy_all
 
 
-50.times do
+300.times do
     Album.create(
         title: Faker::Music.album,
         artist: Faker::Music.band,
@@ -17,7 +17,7 @@ Library.destroy_all
     )
 end 
 
-25.times do
+15.times do
     User.create(
         username: Faker::Internet.username,
         password: "please123", 
@@ -25,10 +25,10 @@ end
     )
 end
 
-25.times do 
+300.times do 
     Library.create(
-        album_id: rand(1..50),
-        user_id: rand(1..25)
+        album_id: rand(1..300),
+        user_id: rand(1..15)
     )
 end
 
