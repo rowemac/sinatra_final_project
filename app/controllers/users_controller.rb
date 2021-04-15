@@ -9,9 +9,13 @@ class UsersController < ApplicationController
         end 
     end
 
-    get '/users/:id/edit' do 
-        @user = current_user
-        erb :'users/edit'
+    get '/users/:id/edit' do
+        if logged_in?
+            @user = current_user
+            erb :'users/edit'
+        else
+            erb :failure
+        end
     end 
 
     patch '/users/:id' do
