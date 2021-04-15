@@ -1,6 +1,12 @@
 <form action = "/users/<%=@user.id%>" method = "post">
     <input id = "hidden" type = "hidden" name = "_method" value = "patch">
-    <p>Username: <input type = "text" name = "username" value = "<%=@user.username%>"></p>
-    <p>Email: <textarea type = "text" name = "email"><%=@user.email%></textarea></p>
-    <p> <input type = "submit" value = "Edit"> </p>
+    <p>Username: <input type = "text" name = "username" placeholder = "<%=@user.username%>"></p>
+    <p>Email: <input type = "text" name = "email" placeholder = "<%=@user.email%>"</p>
+    <br> 
+    <p> <input id="button" class="btn black" type = "submit" value = "Update"> </p>
 </form>
+
+<p> <form action = "/users/<%=@user.id%>">
+    <input id="button" class="btn black" type="submit" value="Back">
+    </form>
+</p>
