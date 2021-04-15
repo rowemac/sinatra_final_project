@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, ENV['SECRET_KEY']
+    register Sinatra::Flash 
   end
 
   get "/" do
@@ -19,7 +20,8 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     if params[:username].empty? || params[:password].empty? || params[:email].empty?
-      redirect "/failure"
+      flash[:notice] = "Please fill out all fields to sign up."
+      redirect "/signup"
     else 
       user = User.new(username: params[:username], password: params[:password], email: params[:email])
       redirect "/library"
@@ -36,7 +38,8 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = user.id
       redirect "/library"
     else
-      redirect "/failure"
+      flash[:notice] = "Your username and/or password is invalid. Please try again."
+      redirect "/login"
     end 
   end
 
