@@ -17,7 +17,9 @@
   <body>
     
     <div class="wrapper">
-
+      <% flash.keys.each do | x | %>
+        <p class="error"><%=flash[x]%></p>
+      <% end %>
         <%= yield %>
 
       <footer class="branding">
