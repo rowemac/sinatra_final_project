@@ -1,9 +1,11 @@
 <h4> Sitewide Albums </h4>
 <br> 
 <% @albums.each do | album | %>
-    <p><a href="/albums/<%=album.id%>" class="underline-on-hover" style="color: black"> <%=album.title%></a><br>
+    <p><a href="/albums/<%=album.id%>" class="underline-on-hover" style="color: black"> <b><%=album.title%></b></a><br>
     <i><%=album.artist%>, <%=album.year%></i></p>
 <% end %>
+
+<br>
 
 <p> <form action="/">
     <input id="button" class="btn black" type="submit" value="Back">
