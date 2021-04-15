@@ -5,7 +5,7 @@ class UsersController < ApplicationController
             @user = current_user
             erb :'users/show'
         else
-            erb: failure
+            erb :failure
         end 
     end
 
