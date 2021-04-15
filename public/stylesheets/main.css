@@ -90,6 +90,11 @@
   .site-tagline {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .error {
+    color: red
+  }
 
 }
 
