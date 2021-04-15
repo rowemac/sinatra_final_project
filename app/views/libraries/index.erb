@@ -1,9 +1,11 @@
 <h4> My Library </h4>
 <br> 
 <% @library.each do | album | %>
-    <p><a href="/library/<%=album.id%>" class="underline-on-hover" style="color: black"> <%=album.title%></a><br>
+    <p><a href="/library/<%=album.id%>" class="underline-on-hover" style="color: black"> <b><%=album.title%></b></a><br>
     <i><%=album.artist%>, <%=album.year%></i></p>
 <% end %>
+
+<br>
 
 <p> <form action = "/library/new">
     <input id="button" class="btn black" type="submit" value="Add Album">
