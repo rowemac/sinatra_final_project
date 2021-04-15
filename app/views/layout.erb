@@ -17,9 +17,14 @@
   
   <body>
     <div class="wrapper">
-      <% flash.keys.each do | x | %>
-        <p class="error"><%=flash[x]%></p>
-      <% end %>
+      <header class="navigate">
+        <% if logged_in? %>
+          <a href="/users/<%=current_user.id%>" class="btn black">Account</a>
+        <% end %>  
+      </header>
+        <% flash.keys.each do | x | %>
+          <p class="error"><%=flash[x]%></p>
+        <% end %>
         <%= yield %>
 
       <footer class="branding">
