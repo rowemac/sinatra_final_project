@@ -1,12 +1,20 @@
 class LibrariesController < ApplicationController
     get '/library' do
-        @library = current_user.albums
-        erb :'libraries/index'
+        if logged_in?
+            @library = current_user.albums
+            erb :'libraries/index'
+        else
+            erb :failure
+        end 
     end 
     
     get '/library/new' do 
-        @user = current_user
-        erb :'libraries/new'
+        if logged_in?
+            @user = current_user
+            erb :'libraries/new'
+        else
+            erb :failure
+        end 
     end
     
     post '/library' do 
@@ -17,15 +25,23 @@ class LibrariesController < ApplicationController
     end
 
     get '/library/:id' do 
-        @user = current_user
-        @album = @user.albums.find(params[:id])
-        erb :'libraries/show'
+        if logged_in?
+            @user = current_user
+            @album = @user.albums.find(params[:id])
+            erb :'libraries/show'
+        else
+            erb :failure
+        end 
     end 
     
     get '/library/:id/edit' do 
-        @user = current_user
-        @album = @user.albums.find(params[:id])
-        erb :'libraries/edit'
+        if logged_in?
+            @user = current_user
+            @album = @user.albums.find(params[:id])
+            erb :'libraries/edit'
+        else
+            erb :failure
+        end 
     end 
     
     patch '/library/:id' do 
@@ -36,9 +52,13 @@ class LibrariesController < ApplicationController
         redirect to "/library/#{@album.id}}"
     end
     
-    delete '/library/:id' do 
-        @library = Library.find(params[:id])
-        @library.delete
-        redirect to '/library'
+    delete '/library/:id' do
+        if logged_in? 
+            @library = Library.find(params[:id])
+            @library.delete
+            redirect to '/library'
+        else
+            erb :failure
+        end 
     end
 end 

@@ -6,7 +6,11 @@ class AlbumsController < ApplicationController
     end 
     
     get '/albums/new' do 
-        erb :'albums/new'
+        if logged_in
+            erb :'albums/new'
+        else
+            erb :failure
+        end 
     end
     
     post '/albums' do 
@@ -20,8 +24,12 @@ class AlbumsController < ApplicationController
     end 
     
     get '/albums/:id/edit' do 
-        @album = Album.find_by_id(params[:id])
-        erb :'albums/edit'
+        if logged_in?
+            @album = Album.find_by_id(params[:id])
+            erb :'albums/edit'
+        else 
+            erb :failure
+        end 
     end 
     
     patch '/albums/:id' do 
@@ -30,9 +38,13 @@ class AlbumsController < ApplicationController
         redirect to "/albums/#{@album.id}"
     end
     
-    delete '/albums/:id' do 
-        @album = Album.find_by_id(params[:id])
-        @album.delete
-        redirect to '/albums'
+    delete '/albums/:id' do
+        if logged_in?
+            @album = Album.find_by_id(params[:id])
+            @album.delete
+            redirect to '/albums'
+        else
+            erb :failure
+        end 
     end
 end
