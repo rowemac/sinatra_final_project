@@ -1,14 +1,21 @@
-<h1> <%=@album.title%> </h1>
-<h2> <%=@album.artist%>, <%=@album.year%> </h2> 
+<h4> <%=@album.title%> </h4>
+<h5> <%=@album.artist%>, <%=@album.year%> </h5> 
+<br>
 <p> Produced by: <%=@album.producer%> </p>
 <p> <%=@album.label%> </p>
 <p> Single: "<%=@album.single%>" </p> 
-<p> Album Condition: <%=@album.condition%> </p>
 <p> Reissue: <%if @album.reissue == true %>
         <%=@album.reissue = "Yes" %> 
     <%elsif @album.reissue == false%> 
         <%=@album.reissue = "No"%>
     <%end%>
 </p>
+<p> Album Condition: <%=@album.condition%> </p>
 
+<br>
+
+<p> <form action="/">
+    <input id="button" class="btn black" type="submit" value="Back">
+    </form>
+</p>
 
