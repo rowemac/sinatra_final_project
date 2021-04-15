@@ -20,6 +20,7 @@
       <header class="navigate">
         <% if logged_in? %>
           <a href="/users/<%=current_user.id%>" class="btn black">Account</a>
+          <a href="/logout>" class="btn black">Log Out</a>
         <% end %>  
       </header>
         <% flash.keys.each do | x | %>
