@@ -85,12 +85,8 @@
     color: red
   }
 
-  .navigation {
-    padding: 5px;
-    text-align: center;
-    background: #4d4b47;
-    color: white;
-    font-size: 30px;
+  .navigate {
+    text-align: right;
   }
 
 }
