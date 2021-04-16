@@ -9,6 +9,13 @@
     <input id="button" class="btn black" type="submit" value="Edit">
 </form>
 
+<p> <form action="/users/<%=@user.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input id="button" class="btn black" type="submit" value="Delete">
+    </form>
+</p>
+
+
 <p> <form action="/library">
     <input id="button" class="btn black" type="submit" value="Back">
     </form>
