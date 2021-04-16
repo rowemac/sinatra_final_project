@@ -18,9 +18,9 @@ class LibrariesController < ApplicationController
     end
     
     post '/library' do 
-        @album = Album.find_or_create_by(title: params[:title], artist: params[:artist])
-        @library = Library.create(user_id: current_user, album_id: @album.id)
-        @album.update(year: params[:year], condition: params[:condition], reissue: params[:reissue])
+        album = Album.find_or_create_by(title: params[:title], artist: params[:artist])
+        library = Library.create(user_id: current_user, album_id: album.id)
+        album.update(year: params[:year], condition: params[:condition], reissue: params[:reissue])
         redirect "/library"
     end
 
@@ -45,17 +45,17 @@ class LibrariesController < ApplicationController
     end 
     
     patch '/library/:id' do 
-        @user = current_user
-        @album = @user.albums.find(params[:id])
+        user = current_user
+        album = user.albums.find(params[:id])
         params.delete("_method")
-        @album.update(params)
-        redirect to "/library/#{@album.id}}"
+        album.update(params)
+        redirect to "/library/#{album.id}}"
     end
     
     delete '/library/:id' do
         if logged_in? 
-            @library = Library.find(params[:id])
-            @library.delete
+            library = Library.find(params[:id])
+            library.delete
             redirect to '/library'
         else
             redirect '/failure'
