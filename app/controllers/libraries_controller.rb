@@ -4,7 +4,7 @@ class LibrariesController < ApplicationController
             @library = current_user.albums
             erb :'libraries/index'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end 
     
@@ -13,7 +13,7 @@ class LibrariesController < ApplicationController
             @user = current_user
             erb :'libraries/new'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end
     
@@ -30,7 +30,7 @@ class LibrariesController < ApplicationController
             @album = @user.albums.find(params[:id])
             erb :'libraries/show'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end 
     
@@ -40,7 +40,7 @@ class LibrariesController < ApplicationController
             @album = @user.albums.find(params[:id])
             erb :'libraries/edit'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end 
     
@@ -58,7 +58,7 @@ class LibrariesController < ApplicationController
             @library.delete
             redirect to '/library'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end
 end 
