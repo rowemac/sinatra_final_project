@@ -46,19 +46,18 @@ class LibrariesController < ApplicationController
     
     patch '/library/:id' do 
         user = current_user
+        raise params.inspect
         album = user.albums.find(params[:id])
-        params.delete("_method")
+        params.delete(:_method)
         album.update(params)
         redirect to "/library/#{album.id}}"
     end
     
     delete '/library/:id' do
-        if logged_in? 
-            library = Library.find(params[:id])
-            library.delete
-            redirect to '/library'
-        else
-            redirect '/failure'
-        end 
+        user = current_user
+        album = user.albums.find(params[:id])
+        params.delete(:_method)
+        album.delete
+        redirect to '/library'
     end
 end 

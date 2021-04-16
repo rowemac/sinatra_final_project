@@ -34,6 +34,7 @@ class AlbumsController < ApplicationController
     
     patch '/albums/:id' do 
         album = Album.find_by_id(params[:id])
+        params.delete(:_method)
         album.update(params)
         redirect to "/albums/#{album.id}"
     end
