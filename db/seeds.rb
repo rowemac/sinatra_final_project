@@ -27,8 +27,8 @@ end
 
 300.times do 
     Library.create(
-        album_id: rand(1..300),
-        user_id: rand(1..15)
+        album: Album.all.sample,
+        user: User.all.sample
     )
 end
 
