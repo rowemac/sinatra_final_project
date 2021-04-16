@@ -9,13 +9,13 @@ class AlbumsController < ApplicationController
         if logged_in
             erb :'albums/new'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end
     
     post '/albums' do 
-        @album = Album.create(params)
-        redirect "/albums/#{@album.id}"
+        album = Album.create(params)
+        redirect "/albums/#{album.id}"
     end
     
     get '/albums/:id' do 
@@ -28,23 +28,23 @@ class AlbumsController < ApplicationController
             @album = Album.find_by_id(params[:id])
             erb :'albums/edit'
         else 
-            erb :failure
+            redirect '/failure'
         end 
     end 
     
     patch '/albums/:id' do 
-        @album = Album.find_by_id(params[:id])
-        @album.update(params)
-        redirect to "/albums/#{@album.id}"
+        album = Album.find_by_id(params[:id])
+        album.update(params)
+        redirect to "/albums/#{album.id}"
     end
     
     delete '/albums/:id' do
         if logged_in?
-            @album = Album.find_by_id(params[:id])
-            @album.delete
+            album = Album.find_by_id(params[:id])
+            album.delete
             redirect to '/albums'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end
 end
