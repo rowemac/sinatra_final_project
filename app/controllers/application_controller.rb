@@ -23,8 +23,8 @@ class ApplicationController < Sinatra::Base
       flash[:notice] = "Please fill out all fields to sign up."
       redirect "/signup"
     else 
-      user = User.new(username: params[:username], password: params[:password], email: params[:email])
-      redirect "/library"
+      user = User.create(username: params[:username], password: params[:password], email: params[:email])
+      redirect "/login"
     end
   end
 
