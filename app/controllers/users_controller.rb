@@ -19,15 +19,15 @@ class UsersController < ApplicationController
     end 
 
     patch '/users/:id' do
-        @user = current_user
-        @user.update(username: params[:username], email: params[:email])
-        redirect "/users/#{@user.id}"
+        user = current_user
+        user.update(username: params[:username], email: params[:email])
+        redirect "/users/#{user.id}"
     end
 
     delete '/users/:id' do 
-        @user = current_user
-        @user.delete(user: params[:username], email: params[:email])
-        Library.all.where(user_id: @user.id).destroy_all
+        user = current_user
+        user.delete(user: params[:username], email: params[:email])
+        Library.all.where(user_id: user.id).destroy_all
     end
 
 end 
