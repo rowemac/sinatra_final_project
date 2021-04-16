@@ -5,7 +5,7 @@ class UsersController < ApplicationController
             @user = current_user
             erb :'users/show'
         else
-            erb :failure
+            redirect '/failure'
         end 
     end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             @user = current_user
             erb :'users/edit'
         else
-            erb :failure
+            redirect '/failure'
         end
     end 
 
