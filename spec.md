@@ -34,7 +34,9 @@ Specs:
         - patch '/library/:id'
         - delete '/library/:id' 
 
-- [ ] Ensure that users can't modify content created by other users
+- [X] Ensure that users can't modify content created by other users
+    - Added logged_in? helper methods as a conditional in controllers
+    - In order to access a users account a user must be logged in
 - [X] Include user input validations
     - In the ApplicationController method post '/signup' there is a validation that directs to the failure.erb page if the user does not complete the form with all three fields - email, username, and password.
     - In the ApplicationController method post '/login' a user is found by the parameters of their username; their password is then authenticated through the session and user id.
@@ -42,7 +44,7 @@ Specs:
 
 - [X] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
     - added flash messages on welcome and signup page for when users do not fill out fields in respective forms
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [X] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 Confirm
 - [X] You have a large number of small Git commits 
 - [X] Your commit messages are meaningful
