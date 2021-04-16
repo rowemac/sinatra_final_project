@@ -20,7 +20,7 @@ end
 15.times do
     User.create(
         username: Faker::Internet.username,
-        password: "please123", 
+        password: ENV['SECRET_PASSWORD'],
         email: Faker::Internet.email
     )
 end
