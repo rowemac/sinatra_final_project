@@ -22,8 +22,8 @@
     </form>
 </p>
 
-<p> <form action="/library/<%=@album.id%>/delete" method="post">
-    <input="hidden" type="hidden" name="_method" value="delete">
+<p> <form action="/library/<%=@album.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
     <input id="button" class="btn black" type="submit" value="Delete">
     </form>
 </p>
