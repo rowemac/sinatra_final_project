@@ -1,7 +1,7 @@
 <h4> Edit </h4>
 <h5> <i><%=@album.title%></i> by <%=@album.artist%> </h5> 
 <br> 
-<form action="/albums/<%=@album.id%>" method="post">
+<form action="/library/<%=@album.id%>" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <p>Title: <input type="text" name="title" placeholder="<%=@album.title%>"></p>
     <p>Artist: <input type="text" name="artist" placeholder="<%=@album.artist%>"></p>
