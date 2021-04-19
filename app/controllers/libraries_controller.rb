@@ -19,7 +19,7 @@ class LibrariesController < ApplicationController
     
     post '/library' do 
         album = Album.find_or_create_by(title: params[:title], artist: params[:artist])
-        library = Library.create(user_id: current_user, album_id: album.id)
+        library = Library.create(user_id: current_user.id, album_id: album.id)
         album.update(year: params[:year], condition: params[:condition], reissue: params[:reissue])
         redirect "/library"
     end
@@ -46,7 +46,6 @@ class LibrariesController < ApplicationController
     
     patch '/library/:id' do 
         user = current_user
-        raise params.inspect
         album = user.albums.find(params[:id])
         params.delete(:_method)
         album.update(params)
