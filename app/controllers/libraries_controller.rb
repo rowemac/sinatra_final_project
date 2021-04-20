@@ -32,7 +32,7 @@ class LibrariesController < ApplicationController
     get '/library/:id' do 
         if logged_in?
             @user = current_user
-            if Album.find(params[:id])
+            if Album.where(id: params[:id]).exists?
                 @album = @user.albums.find(params[:id])
                 erb :'libraries/show'
             else
@@ -44,16 +44,20 @@ class LibrariesController < ApplicationController
     end 
     
     get '/library/:id/edit' do 
-        @album = @user.albums.find(params[:id])
-        if logged_in?
-            @user = current_user
-            if @library = Library.find_by(user_id: @user.id, album_id: @album.id)
-                erb :'libraries/edit'
+        @user = current_user
+        if !@user.albums.where(id: params[:id]).exists?
+            redirect '/failure'
+        else
+            if logged_in?
+                @album = @user.albums.find(params[:id])
+                if @library = Library.find_by(user_id: @user.id, album_id: @album.id)
+                    erb :'libraries/edit'
+                else
+                    redirect '/failure'
+                end
             else
                 redirect '/failure'
-            end
-        else
-            redirect '/failure'
+            end 
         end 
     end 
     
