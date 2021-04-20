@@ -3,11 +3,11 @@
 <br> 
 <form action="/library/<%=@album.id%>" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    <p>Title: <input type="text" name="title" placeholder="<%=@album.title%>"></p>
-    <p>Artist: <input type="text" name="artist" placeholder="<%=@album.artist%>"></p>
-    <p>Year: <input type="text" name="year" placeholder="<%=@album.year%>"></p>
-    <p>Label: <input type="text" name="label" placeholder="<%=@album.label%>"></p>
-    <p>Single: <input type="text" name="single" placeholder="<%=@album.single%>"></p>
+    <p>Title: <input type="text" name="title" value="<%=@album.title%>"></p>
+    <p>Artist: <input type="text" name="artist" value="<%=@album.artist%>"></p>
+    <p>Year: <input type="text" name="year" value="<%=@album.year%>"></p>
+    <p>Label: <input type="text" name="label" value="<%=@album.label%>"></p>
+    <p>Single: <input type="text" name="single" value="<%=@album.single%>"></p>
     
     
     <p>Reissue:

@@ -17,28 +17,41 @@ class LibrariesController < ApplicationController
         end 
     end
     
-    post '/library' do 
-        album = Album.find_or_create_by(title: params[:title], artist: params[:artist])
-        library = Library.create(user_id: current_user.id, album_id: album.id)
-        album.update(year: params[:year], condition: params[:condition], reissue: params[:reissue])
-        redirect "/library"
+    post '/library' do
+        if params[:title].empty? || params[:artist].empty?
+            flash[:notice] = "Please fill out all fields to add an album."
+            redirect "/library/new"
+        else
+            album = Album.find_or_create_by(title: params[:title], artist: params[:artist])
+            library = Library.create(user_id: current_user.id, album_id: album.id)
+            album.update(year: params[:year], condition: params[:condition], reissue: params[:reissue])
+            redirect "/library"
+        end
     end
 
     get '/library/:id' do 
         if logged_in?
             @user = current_user
-            @album = @user.albums.find(params[:id])
-            erb :'libraries/show'
+            if Album.find(params[:id])
+                @album = @user.albums.find(params[:id])
+                erb :'libraries/show'
+            else
+                redirect '/failure'
+            end
         else
             redirect '/failure'
         end 
     end 
     
     get '/library/:id/edit' do 
+        @album = @user.albums.find(params[:id])
         if logged_in?
             @user = current_user
-            @album = @user.albums.find(params[:id])
-            erb :'libraries/edit'
+            if @library = Library.find_by(user_id: @user.id, album_id: @album.id)
+                erb :'libraries/edit'
+            else
+                redirect '/failure'
+            end
         else
             redirect '/failure'
         end 
