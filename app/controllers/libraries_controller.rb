@@ -30,16 +30,21 @@ class LibrariesController < ApplicationController
     end
 
     get '/library/:id' do 
-        if logged_in?
-            @user = current_user
-            if Album.where(id: params[:id]).exists?
-                @album = @user.albums.find(params[:id])
-                erb :'libraries/show'
+        @user = current_user
+        if !@user.albums.where(id: params[:id]).exists?
+            redirect '/failure'
+        else
+            if logged_in?
+                @user = current_user
+                if Album.where(id: params[:id]).exists?
+                    @album = @user.albums.find(params[:id])
+                    erb :'libraries/show'
+                else
+                    redirect '/failure'
+                end
             else
                 redirect '/failure'
             end
-        else
-            redirect '/failure'
         end 
     end 
     
